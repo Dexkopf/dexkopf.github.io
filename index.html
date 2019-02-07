@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Pořádná dávka štěňátek</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body> 
+  <div class="container">
+    <button onclick="loadImg()" class="waves-effect waves-light btn-small">Načti si štěňátko</button>
+    <img id="gif" src="">
+  </div>
+  <script>
+    function loadImg(){
+      var ajaxRequest = new XMLHttpRequest();
+      const giphy = {
+        baseURL: "https://api.giphy.com/v1/gifs/",
+        key: "dc6zaTOxFJmzC",
+        tag: "puppies",
+        type: "random",
+        rating: "pg-13"
+      };
+      let giphyURL = encodeURI(
+        giphy.baseURL +
+          giphy.type +
+          "?api_key=" +
+          giphy.key +
+          "&tag=" +
+          giphy.tag +
+          "&rating=" +
+          giphy.rating
+      );
+      ajaxRequest.open("GET", giphyURL, true);
+      ajaxRequest.send();
+      ajaxRequest.onload = function() {
+        var imageElement = document.getElementById("gif");
+        var responseData = JSON.parse(ajaxRequest.responseText);
+        imageElement.src = responseData.data.image_original_url;     
+      }  
+    }
+  </script>
+</body>
+</html>
