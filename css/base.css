@@ -6,7 +6,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     color: white;
-    background-image: url(../img/wall.jpg);
+    background-image: url(../img/wallvan.jpeg);
     background-size: cover;
     background-position: left;
     height: 100vh;
@@ -85,7 +85,7 @@ h1, p {
     margin: 0;
     padding: 0;
     margin-bottom: 12px;
-    color: rgba(255,255,255,.125)
+    color: rgba(255,255,255,.25)
 }
 .present .animated {
     animation: 1.5s ease-in-out infinite up-down;
