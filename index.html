@@ -42,8 +42,8 @@
     </div>
     <script>
     let toggle = document.querySelectorAll(".present");
-    function giftsToggle(){
-        let gifts = document.getElementById("gifts");
+    let gifts = document.getElementById("gifts");
+    function giftsToggle(){        
         if (!gifts.classList.contains("display")){
             gifts.classList.add("display");
         }
@@ -58,6 +58,17 @@
         toggle[1].classList.toggle("display");
         toggle[2].classList.toggle("display");
     }
+    var toggleCount = 0;
+    document.addEventListener('click', () => {
+        if (toggle[2].classList.contains("display")){
+            toggleCount++;
+            if (toggleCount > 1){
+                toggle[2].classList.toggle("display");
+                gifts.classList.toggle("display");
+                toggleCount = 0;
+            }
+        }
+    })
     </script>
 </body>
 </html>
