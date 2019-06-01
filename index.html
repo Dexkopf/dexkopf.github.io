@@ -1,46 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Pořádná dávka štěňátek</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wow Starter Kit</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
 </head>
-<body> 
-  <div class="container">
-    <button onclick="loadImg()" class="waves-effect waves-light btn-small">Načti si štěňátko</button>
-    <img id="gif" src="">
-  </div>
-  <script>
-    function loadImg(){
-      var ajaxRequest = new XMLHttpRequest();
-      const giphy = {
-        baseURL: "https://api.giphy.com/v1/gifs/",
-        key: "dc6zaTOxFJmzC",
-        tag: "puppies",
-        type: "random",
-        rating: "pg-13"
-      };
-      let giphyURL = encodeURI(
-        giphy.baseURL +
-          giphy.type +
-          "?api_key=" +
-          giphy.key +
-          "&tag=" +
-          giphy.tag +
-          "&rating=" +
-          giphy.rating
-      );
-      ajaxRequest.open("GET", giphyURL, true);
-      ajaxRequest.send();
-      ajaxRequest.onload = function() {
-        var imageElement = document.getElementById("gif");
-        var responseData = JSON.parse(ajaxRequest.responseText);
-        imageElement.src = responseData.data.image_original_url;     
-      }  
+<body>
+    <div class="container">
+        <h1>WoW Classic Starter Kit</h1>
+        <p>Claim your Starter Kit and get ready to enjoy WoW Classic!</p>
+        <div class="btn-outter">
+            <button class="btn" id="claim" onclick="giftsToggle()">Claim your destiny</button>
+        </div>
+    </div>
+    <div class="presents-wrapper" id="gifts">
+        <div class="present" id="gold">
+            <img src="img/gold.png" alt="">
+            <h2 class="gold">500 Gold</h2>
+            <p>Gold can be used to buy consumables such as food(burgers), flasks(beers) and everything else for your optimal leveling experience.</p>
+            <div class="btn-outter">
+                <div class="btn" onclick="giftsToggle1()">Okay!</div>
+            </div>
+        </div>
+        <div class="present" id="token">
+            <img src="img/wowtoken-compressed.png" alt="" style="transform: scale(0.8)">
+            <h2>WoW Token</h2>
+            <p>"Time is money, friend"--but sometimes one is harder to come by than the other. Enjoy your free game time while you still can!</p>
+            <div class="btn-outter">
+                <div class="btn" onclick="giftsToggle2()">Okay!</div>
+            </div>
+        </div>
+        <div class="present" id="wow-classic" style="align-items: center; justify-content: center; width: 100%">
+            <img src="img/logo.png" width="240px" height="103px" alt="">
+            <div data-type="countdown" data-id="1235609" class="tickcounter" style="width: 100%; position: relative; padding-bottom: 25%"><a href="//www.tickcounter.com/countdown/1235609/the-journey-starts-in" title="The journey starts in">The journey starts in</a><a href="//www.tickcounter.com/" title="Countdown">Countdown</a></div><script>(function(d, s, id) { var js, pjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//www.tickcounter.com/static/js/loader.js"; pjs.parentNode.insertBefore(js, pjs); }(document, "script", "tickcounter-sdk"));</script>
+        </div>
+    </div>
+    <script>
+    let toggle = document.querySelectorAll(".present");
+    function giftsToggle(){
+        let gifts = document.getElementById("gifts");
+        if (!gifts.classList.contains("display")){
+            gifts.classList.add("display");
+        }
+        console.log(toggle);
+        toggle[0].classList.toggle("display");
     }
-  </script>
+    function giftsToggle1(){
+        toggle[0].classList.toggle("display");
+        toggle[1].classList.toggle("display");
+    }
+    function giftsToggle2(){
+        toggle[1].classList.toggle("display");
+        toggle[2].classList.toggle("display");
+    }
+    </script>
 </body>
 </html>

@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    background-image: url(../img/rag.jpg);
+    background-size: cover;
+    background-position: left;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+}
+p {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+}
+h1, p {
+    text-shadow: rgb(0, 0, 0) 0px 2px 2px;
+    color: rgb(235, 222, 194);
+}
+.btn {
+    padding: 12px 30px;
+    text-transform: uppercase;
+    font-size: 1.08rem;
+    line-height: 1.5em;
+    font-weight: 400;
+    background: rgba(0,0,0,.4);
+    border: 0;
+    color: #f7b10a;
+    min-width: 180px;
+    text-transform: uppercase;
+    -webkit-transition: background .2s,color .2s;
+    transition: background .2s,color .2s;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: rgba(100, 0, 0, 0.95);
+}
+.btn-outter {
+    border: 1px solid rgba(100, 0, 0, 0.95);
+    display: inline-block; 
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+.presents-wrapper {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.95);
+    padding: 5vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.present {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.present .btn-outter {
+
+}
+.gold {
+    color: 	gold;
+}
+
+.display {
+    display: flex;
+}
